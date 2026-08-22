@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from './LanguageContext';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -9,7 +10,7 @@ import { NAV } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
-  const pathname = usePathname();
+  const pathname = usePathname(); const { locale, setLocale } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -52,12 +53,24 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <Button href="/contact" size="sm" className="hidden md:inline-flex" withArrow>
-            Start a project
-          </Button>
-          <MobileMenu />
-        </div>
+           <div className="flex items-center gap-3">
+     <button 
+       onClick={() => setLocale('en')} 
+       className={`text-sm px-3 py-1.5 rounded-full transition ${locale === 'en' ? 'bg-white text-ink-900' : 'text-ink-300 hover:text-white'}`}
+     >
+       EN
+     </button>
+     <button 
+       onClick={() => setLocale('fr')} 
+       className={`text-sm px-3 py-1.5 rounded-full transition ${locale === 'fr' ? 'bg-white text-ink-900' : 'text-ink-300 hover:text-white'}`}
+     >
+       FR
+     </button>
+     <Button href="/contact" size="sm" className="hidden md:inline-flex" withArrow>
+       Start a project
+     </Button>
+     <MobileMenu />
+           </div>
       </div>
     </header>
   );
