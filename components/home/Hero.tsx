@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { GridPattern } from "@/components/ui/GridPattern";
 import { HeroOrbit } from "./HeroOrbit";
+import { Glow } from "@/components/ui/Glow";
 
 export function Hero() {
   return (
