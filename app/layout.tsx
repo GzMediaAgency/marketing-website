@@ -62,9 +62,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans bg-ink-950 text-ink-50 min-h-screen flex flex-col`}>
-        {children}
-      </body>
+         <body className={`${inter.variable} font-sans bg-ink-950 text-ink-50 min-h-screen flex flex-col`}>
+     <Providers>
+       {children}
+     </Providers>
+   </body>
     </html>
   );
 }
