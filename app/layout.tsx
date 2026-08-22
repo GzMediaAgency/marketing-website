@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { SITE } from "@/lib/constants";
 
 const inter = Inter({
@@ -62,31 +60,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="font-sans bg-ink-950 text-ink-50 min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: SITE.name,
-              url: SITE.url,
-              logo: `${SITE.url}/logo.svg`,
-              description:
-                "GZ Media Agency builds modern websites, web applications, AI solutions, business automations and custom SaaS products.",
-              sameAs: Object.values(SITE.social),
-              contactPoint: {
-                "@type": "ContactPoint",
-                email: SITE.email,
-                contactType: "sales",
-              },
-            }),
-          }}
-        />
+    <html lang="en">
+      <body className={`${inter.variable} font-sans bg-ink-950 text-ink-50 min-h-screen flex flex-col`}>
+        {children}
       </body>
     </html>
   );
