@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { GridPattern, className } from "@/components/ui/GridPattern";
+import { GridPattern } from "@/components/ui/GridPattern";
 import { HeroOrbit } from "./HeroOrbit";
 
 export function Hero() {
