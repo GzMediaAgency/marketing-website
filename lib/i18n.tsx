@@ -1,10 +1,9 @@
 'use client';
-
 import { createContext, useContext, ReactNode } from 'react';
-import { translations, Locale } from '@/translations';
+import { translations, Locale, Translation } from '@/translations';
 
 const I18nContext = createContext<{
-  t: typeof translations.en;
+  t: Translation;
   locale: Locale;
   setLocale: (locale: Locale) => void;
 } | null>(null);
