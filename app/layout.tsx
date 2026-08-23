@@ -1,4 +1,6 @@
-   import { Providers } from "@/components/layout/Providers";
+import { Providers } from "@/components/layout/Providers";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -62,11 +64,15 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-         <body className={`${inter.variable} font-sans bg-ink-950 text-ink-50 min-h-screen flex flex-col`}>
-     <Providers>
-       {children}
-     </Providers>
-   </body>
+      <body className={`${inter.variable} font-sans bg-ink-950 text-ink-50 min-h-screen flex flex-col`}>
+        <Providers>
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
+      </body>
     </html>
   );
 }
